@@ -1,4 +1,3 @@
-// Mobile menu toggle
 document.getElementById('mobile-menu-button').addEventListener('click', function() {
     const menu = document.getElementById('mobile-menu');
     menu.classList.toggle('hidden');
@@ -8,32 +7,25 @@ function closeMobileMenu() {
     document.getElementById('mobile-menu').classList.add('hidden');
 }
 
-// Page navigation
 function navigateTo(pageId) {
-    // Hide all pages
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active', 'fade-in');
         page.classList.add('hidden');
     });
 
-    // Show selected page
     const page = document.getElementById(`${pageId}-page`);
     if (page) {
         page.classList.remove('hidden');
         page.classList.add('active');
-        // Trigger reflow to restart animation
         void page.offsetWidth;
         page.classList.add('fade-in');
     }
 
-    // Close mobile menu if open
     closeMobileMenu();
 
-    // Scroll to top
     window.scrollTo(0, 0);
 }
 
-// Handle registration form submission
 function handleRegistration(event) {
     event.preventDefault();
     const name = document.getElementById('name').value;
@@ -41,7 +33,6 @@ function handleRegistration(event) {
     navigateTo('home');
 }
 
-// Initialize page based on URL hash
 function initPage() {
     const hash = window.location.hash.replace('#', '');
     const validPages = ['home', 'features', 'communities', 'events', 'testimonials', 'register', 'chat'];
@@ -52,13 +43,10 @@ function initPage() {
     }
 }
 
-// Handle hash changes
 window.addEventListener('hashchange', initPage);
 
-// Initialize on load
 document.addEventListener('DOMContentLoaded', initPage);
 
-// Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     const mobileMenu = document.getElementById('mobile-menu');
     const menuButton = document.getElementById('mobile-menu-button');
@@ -67,11 +55,9 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Chat functionality with thematic chats
 document.addEventListener('DOMContentLoaded', function() {
     if (!document.getElementById('chat-page')) return;
 
-    // Chat room data for all rooms including thematic ones
     const chatRooms = {
         'japanese-chat': {
             title: 'Японский чат',
@@ -123,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Сегодня выучите японское приветствие: "Конничи ва" (こんにちは) означает "Добрый день". Произносится как "кон-ни-чи-ва".',
-            onlineCount: 42,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'brazilian-chat': {
@@ -168,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Сегодняшний португальский фраза: "Tudo bem?" (Туду бен?) - "Как дела?" Это универсальное приветствие в Бразилии.',
-            onlineCount: 38,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'mexican-chat': {
@@ -213,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Сегодняшняя испанская фраза: "¡Buen provecho!" (Буэн провечо!) - говорят перед едой как "Приятного аппетита".',
-            onlineCount: 31,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'russian-chat': {
@@ -258,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Сегодняшняя русская традиция: когда в доме появляется новый гость, обязательно угощают хлебом и солью как знак дружбы и уважения.',
-            onlineCount: 56,
+            onlineCount: 0,
             language: 'Русский'
         },
         'chinese-chat': {
@@ -303,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Сегодняшний китайский иерогlyph: 福 (фу) - означает "удача" и "счастье". Его часто вешают на двери вверх ногами, потому что слово "вверх ногами" звучит как "прийти".',
-            onlineCount: 29,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'cooking-chat': {
@@ -356,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Совет дня: В тайской кухне баланс пяти вкусов (сладкий, кислый, соленый, горький, острый) - это основа любого блюда. Никогда не пренебрегайте этим балансом!',
-            onlineCount: 24,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'art-chat': {
@@ -409,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Дайджест дня: Африканские маски не просто украшение. Они используются в ритуалах и церемониях, каждая форма и цвет имеют глубокое символическое значение.',
-            onlineCount: 18,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'festivals-chat': {
@@ -462,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Совет дня: На тайском фестивале Сонгкран (Новый год) люди не просто обливают друг друга водой. Это символ очищения от неудач и болезней прошлого года. Важно делать это с улыбкой и желать друг другу удачи!',
-            onlineCount: 31,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         },
         'music-chat': {
@@ -515,12 +501,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             culturalTip: 'Факт дня: У африканских тамтамов (барабанов) есть "язык барабанов" - ритмы, которые передают слова и сообщения на большие расстояния. Разные ритмы означают разные сообщения: призыв к собранию, предупреждение об опасности или даже новости о свадьбе.',
-            onlineCount: 22,
+            onlineCount: 0,
             language: 'Русский (автоматический перевод)'
         }
     };
 
-    // Initialize chat rooms
     function initChatRooms() {
         const chatRoomItems = document.querySelectorAll('.chat-room-item');
         const messagesContainer = document.querySelector('.chat-messages-container');
@@ -530,33 +515,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const messageInput = document.getElementById('message-input');
         const sendBtn = document.getElementById('send-btn');
 
-        // Set up click handlers for all chat rooms
         chatRoomItems.forEach(item => {
             item.addEventListener('click', function() {
-                // Remove active class from all items
                 chatRoomItems.forEach(room => room.classList.remove('active'));
-                // Add active class to clicked item
                 this.classList.add('active');
-                // Get room ID from data attribute
                 const roomId = this.getAttribute('data-room');
-                // Update chat content
                 if (chatRooms[roomId]) {
                     updateChatContent(chatRooms[roomId]);
                 }
             });
         });
 
-        // Send message functionality
         sendBtn.addEventListener('click', function() {
             const message = messageInput.value.trim();
             if (message) {
-                // Get current active room
                 const activeRoom = document.querySelector('.chat-room-item.active');
                 if (!activeRoom) return;
                 const roomId = activeRoom.getAttribute('data-room');
                 const roomData = chatRooms[roomId];
 
-                // Add new message to the room data
                 const newMessage = {
                     type: 'sent',
                     avatar: 'AM',
@@ -567,22 +544,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
                 roomData.messages.push(newMessage);
 
-                // Update chat content
                 updateChatContent(roomData);
 
-                // Clear input
                 messageInput.value = '';
             }
         });
 
-        // Send message on Enter key
         messageInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 sendBtn.click();
             }
         });
 
-        // Initial chat content (Japanese chat)
         const initialRoom = document.querySelector('.chat-room-item.active').getAttribute('data-room');
         updateChatContent(chatRooms[initialRoom]);
     }
@@ -593,7 +566,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const chatLanguage = document.getElementById('chat-language');
         const onlineCount = document.getElementById('online-count');
 
-        // Update messages container
         messagesContainer.innerHTML = '';
         roomData.messages.forEach(message => {
             const messageElement = document.createElement('div');
@@ -641,15 +613,12 @@ document.addEventListener('DOMContentLoaded', function() {
             messagesContainer.appendChild(messageElement);
         });
 
-        // Scroll to bottom
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        // Update sidebar info
         dailyTip.textContent = roomData.culturalTip;
         chatLanguage.textContent = `Язык чата: ${roomData.language}`;
         onlineCount.textContent = `Онлайн: ${roomData.onlineCount} участника`;
     }
 
-    // Initialize chat rooms
     initChatRooms();
 });
