@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CulturaLink | Блиц</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#111111', secondary: '#333333', light: '#f9fafb', border: '#e5e7eb' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    
+    <script>
+        if (localStorage.getItem('isRegistered') === 'true') {
+            document.documentElement.classList.add('logged-in');
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900 antialiased flex flex-col min-h-screen overflow-y-scroll">
+    
+    <nav class="fixed w-full bg-transparent z-50 transition-colors duration-300 border-b border-transparent h-[80px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <div class="tilt-hitbox inline-block">
+                <a href="index.html" class="tilt-inner text-primary font-bold text-xl tracking-tight inline-block">CulturaLink.</a>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <div class="tilt-hitbox inline-block">
+                    <a href="communities.html" class="tilt-inner text-gray-500 hover:text-primary text-sm font-medium transition inline-block">&larr; Покинуть задание</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-grow flex items-center justify-center pt-[80px] pb-12 px-4">
+        <div id="quiz-container" class="w-full max-w-xl bg-white border border-gray-200 rounded-2xl shadow-sm p-8 md:p-12">
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

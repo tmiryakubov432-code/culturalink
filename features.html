@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CulturaLink | Возможности</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { primary: '#111111', secondary: '#333333', light: '#f9fafb', border: '#e5e7eb' }, fontFamily: { sans: ['Inter', 'sans-serif'] } } } }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    
+    <script>
+        if (localStorage.getItem('isRegistered') === 'true') {
+            document.documentElement.classList.add('logged-in');
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900 antialiased flex flex-col min-h-screen overflow-y-scroll">
+    
+    <nav class="fixed w-full bg-transparent z-50 transition-colors duration-300 border-b border-transparent h-[80px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex justify-between items-center">
+            <div class="tilt-hitbox inline-block">
+                <a href="index.html" class="tilt-inner text-primary font-bold text-xl tracking-tight inline-block">CulturaLink.</a>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <div class="tilt-hitbox inline-block"><a href="index.html" class="tilt-inner text-gray-500 hover:text-primary text-sm font-medium transition inline-block">Главная</a></div>
+                <div class="tilt-hitbox inline-block"><a href="features.html" class="tilt-inner text-primary font-bold text-sm inline-block">Возможности</a></div>
+                <div class="tilt-hitbox inline-block"><a href="communities.html" class="tilt-inner text-gray-500 hover:text-primary text-sm font-medium transition inline-block">Сообщества</a></div>
+                <div class="tilt-hitbox inline-block"><a href="events.html" class="tilt-inner text-gray-500 hover:text-primary text-sm font-medium transition inline-block">События</a></div>
+                <div class="tilt-hitbox inline-block"><a href="chat.html" class="tilt-inner text-gray-500 hover:text-primary text-sm font-medium transition inline-block">Чат</a></div>
+                <div class="tilt-hitbox inline-block">
+                    <a href="register.html" class="tilt-inner bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-secondary transition inline-block shadow-sm">Присоединиться</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="flex-grow pt-[80px]">
+        <section class="py-16 px-4 max-w-7xl mx-auto">
+            <div class="fade-in-up text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary tracking-tight mb-4">Инструменты общения</h2>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto">Строгий функционал для полного погружения в контекст.</p>
+            </div>
+            <div id="features-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"></div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-200 py-10 bg-white mt-auto text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="tilt-hitbox inline-block">
+                <div class="tilt-inner text-xl font-bold text-primary mb-2 inline-block">CulturaLink.</div>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">© 2026. Строгая платформа культурного обмена.</p>
+        </div>
+    </footer>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

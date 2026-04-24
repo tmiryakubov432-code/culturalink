@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CulturaLink | Условия</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body class="font-sans bg-gray-50 text-gray-900 antialiased overflow-y-scroll">
+    <main class="max-w-3xl mx-auto py-20 px-6">
+        <h1 class="text-3xl font-bold mb-8 fade-in-up">Условия пользования</h1>
+        <div class="space-y-6 text-gray-600 leading-relaxed" id="legal-content">
+            <p class="fade-in-up"><strong>1. Этикет общения.</strong> CulturaLink — это пространство для культурного обмена. Любые формы агрессии, расизма или неуважения к чужим традициям ведут к немедленной блокировке.</p>
+            <p class="fade-in-up"><strong>2. Контент.</strong> Вы несете ответственность за информацию, которую публикуете в чатах. Запрещено распространение вредоносного ПО и спама.</p>
+            <p class="fade-in-up"><strong>3. Возраст.</strong> Платформа предназначена для пользователей старше 16 лет.</p>
+            <p class="fade-in-up"><strong>4. Отказ от гарантий.</strong> Мы предоставляем сервис "как есть" и стремимся обеспечить его максимально стабильную работу, но не несем ответственности за временные перебои в сети.</p>
+        </div>
+        <div class="mt-12">
+            <a href="register.html" class="text-primary font-bold">&larr; Вернуться к регистрации</a>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Находим все элементы с анимацией на странице
+        const elements = document.querySelectorAll('.fade-in-up');
+        
+        // По очереди показываем их с небольшой задержкой
+        elements.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.add('show');
+            }, i * 150); // 150мс между появлением каждого абзаца
+        });
+    });
+</script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

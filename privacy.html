@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CulturaLink | Конфиденциальность</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body class="font-sans bg-gray-50 text-gray-900 antialiased overflow-y-scroll">
+    <main class="max-w-3xl mx-auto py-20 px-6">
+        <h1 class="text-3xl font-bold mb-8 fade-in-up">Политика конфиденциальности</h1>
+        <div class="space-y-6 text-gray-600 leading-relaxed" id="legal-content">
+            <p class="fade-in-up"><strong>1. Сбор данных.</strong> Мы собираем только те данные, которые необходимы для вашего общения: имя (псевдоним) и адрес электронной почты.</p>
+            <p class="fade-in-up"><strong>2. Использование данных.</strong> Ваша почта используется только для входа в систему и важных уведомлений платформы. Мы никогда не передаем ваши данные рекламным сетям или третьим лицам.</p>
+            <p class="fade-in-up"><strong>3. Модерация и боты.</strong> На CulturaLink запрещено использование автоматизированных скриптов (ботов). Мы оставляем за собой право анализировать активность профиля для подтверждения его подлинности.</p>
+            <p class="fade-in-up"><strong>4. Безопасность сообщений.</strong> Ваши сообщения в чатах видны только участникам соответствующих комнат. Мы не храним историю переписки дольше, чем это необходимо для работы сервиса.</p>
+        </div>
+        <div class="mt-12">
+            <a href="register.html" class="text-primary font-bold">&larr; Вернуться к регистрации</a>
+        </div>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Находим все элементы с анимацией на странице
+        const elements = document.querySelectorAll('.fade-in-up');
+        
+        // По очереди показываем их с небольшой задержкой
+        elements.forEach((el, i) => {
+            setTimeout(() => {
+                el.classList.add('show');
+            }, i * 150); // 150мс между появлением каждого абзаца
+        });
+    });
+</script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
