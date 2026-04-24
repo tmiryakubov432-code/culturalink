@@ -1,0 +1,164 @@
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* === Монолитный Header === */
+nav {
+    height: 80px;
+}
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    border-bottom-color: #e5e7eb !important;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* === Анимации === */
+.fade-in-up {
+    opacity: 0;
+    translate: 0 40px; 
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), 
+                translate 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.2s ease !important;
+    will-change: opacity, translate, transform;
+}
+.fade-in-up.show {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* === 3D Tilt === */
+.tilt-element {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.tilt-element:not(.fade-in-up) {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s ease;
+}
+.tilt-element:hover {
+    z-index: 10;
+}
+
+/* === HITBOX WRAPPER (Секретное оружие против тряски) === */
+.tilt-hitbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    background: transparent;
+}
+.tilt-inner {
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* === Дизайн карточек === */
+.text-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.text-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle at top right, rgba(243, 244, 246, 0.8), transparent 70%);
+    border-radius: 0 16px 0 100%;
+}
+.text-card:hover {
+    border-color: #111111;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: #111111;
+}
+
+/* === Live-статус === */
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #111111;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+.live-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border-radius: 50%;
+    background-color: rgba(17, 17, 17, 0.2);
+    animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+}
+@keyframes pulse-ring {
+    0% { transform: scale(0.3); opacity: 1; }
+    80%, 100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* === Чат и модалки === */
+.modal-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+}
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-content {
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.chat-item-enter { 
+    animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+.chat-item-exit { 
+    overflow: hidden; 
+    animation: slideOutRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutRight {
+    0% { opacity: 1; transform: translateX(0); height: var(--current-height); margin-bottom: 0.25rem; }
+    100% { opacity: 0; transform: translateX(20px); height: 0; margin-bottom: 0; padding: 0; border: none; }
+}
+
+/* === Скроллбар === */
+.chat-scroll::-webkit-scrollbar { width: 4px; }
+.chat-scroll::-webkit-scrollbar-track { background: transparent; }
+.chat-scroll::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+.chat-scroll::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #d1d5db; }
